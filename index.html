@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>PanasTest</title>
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1">
+
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+<link rel="stylesheet" href="css/custom.css" />
+<link href='http://fonts.googleapis.com/css?family=Courgette' rel='stylesheet' type='text/css'>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+
+
+<!--HOME -->
+<script type="text/javascript">
+	function home_json(){
+   
+    var hr = new XMLHttpRequest();
+   
+    var url = "http://localhost/panasjson/home.json";
+    hr.open("GET", url, true);
+    // Set content type header information for sending url encoded variables in the request
+    hr.setRequestHeader("Content-type", "application/json", true);
+    // Access the onreadystatechange event for the XMLHttpRequest object
+    hr.onreadystatechange = function() {
+	    if(hr.readyState == 4 && hr.status == 200) {
+		    var data = JSON.parse(hr.responseText);
+			var resu = document.getElementById("resu");
+	   		//results.innerHTML = data.news2.head +" <br/>Full report: " +data.news2.detail;
+	    resu.innerHTML = "";
+	    for(var obj in data){
+	    		resu.innerHTML += "<strong>"+"<ul style='list-style-type:none'><li>"+data[obj].home+"</strong>" +"</li>"+"</ul>";
+	    }
+	    }
+    }
+    // Send the data to PHP now... and wait for response to update the status div
+    hr.send(null); // Actually execute the request
+    document.getElementById("resu").innerHTML = "requesting...";
+}
+	</script>
+
+<!--ABOUT -->
+<script type="text/javascript">
+	function about_json(){
+   
+    var hr = new XMLHttpRequest();
+   
+    var url = "http://localhost/panasjson/about.json";
+    hr.open("GET", url, true);
+    // Set content type header information for sending url encoded variables in the request
+    hr.setRequestHeader("Content-type", "application/json", true);
+    // Access the onreadystatechange event for the XMLHttpRequest object
+    hr.onreadystatechange = function() {
+	    if(hr.readyState == 4 && hr.status == 200) {
+		    var data = JSON.parse(hr.responseText);
+			var ret = document.getElementById("ret");
+	   		//results.innerHTML = data.news2.head +" <br/>Full report: " +data.news2.detail;
+	    ret.innerHTML = "";
+	    for(var obj in data){
+	    		ret.innerHTML += "<strong>"+"<ul style='list-style-type:none'><li>"+data[obj].abt+"</strong>" +"</li>"+"</ul>";
+	    }
+	    }
+    }
+    // Send the data to PHP now... and wait for response to update the status div
+    hr.send(null); // Actually execute the request
+    document.getElementById("ret").innerHTML = "requesting...";
+}
+	</script>
+
+<!--MENU-->
+<script type="text/javascript">
+	function ajax_json(){
+   
+    var hr = new XMLHttpRequest();
+   
+    var url = "http://localhost/panasjson/menus.json";
+    hr.open("GET", url, true);
+    // Set content type header information for sending url encoded variables in the request
+    hr.setRequestHeader("Content-type", "application/json", true);
+    // Access the onreadystatechange event for the XMLHttpRequest object
+    hr.onreadystatechange = function() {
+	    if(hr.readyState == 4 && hr.status == 200) {
+		    var data = JSON.parse(hr.responseText);
+			var results = document.getElementById("results");
+	   		//results.innerHTML = data.news2.head +" <br/>Full report: " +data.news2.detail;
+	    results.innerHTML = "";
+	    for(var obj in data){
+	    		results.innerHTML += "<strong>"+"<ul style='list-style-type:none'><li>"+data[obj].head+"</strong>" +"</li>"+"</ul>";
+	    }
+	    }
+    }
+    // Send the data to PHP now... and wait for response to update the status div
+    hr.send(null); // Actually execute the request
+    document.getElementById("results").innerHTML = "requesting...";
+}
+	</script>
+
+
+<!--JSON DESSERT-->
+<script type="text/javascript">
+	function dessert_json(){
+   
+    var hr = new XMLHttpRequest();
+   
+    var url = "http://localhost/panasjson/desserts.json";
+    hr.open("GET", url, true);
+    // Set content type header information for sending url encoded variables in the request
+    hr.setRequestHeader("Content-type", "application/json", true);
+    // Access the onreadystatechange event for the XMLHttpRequest object
+    hr.onreadystatechange = function() {
+	    if(hr.readyState == 4 && hr.status == 200) {
+		    var data = JSON.parse(hr.responseText);
+			var result = document.getElementById("result");
+	   		//results.innerHTML = data.news2.head +" <br/>Full report: " +data.news2.detail;
+	    result.innerHTML = "";
+	    for(var obj in data){
+	    		result.innerHTML += "<strong>"+"<ul style='list-style-type:none'><li>"+data[obj].des+"</strong>" +"</li>"+"</ul>";
+	    }
+	    }
+    }
+    // Send the data to PHP now... and wait for response to update the status div
+    hr.send(null); // Actually execute the request
+    document.getElementById("result").innerHTML = "requesting...";
+}
+	</script>
+
+<!--CONTACT DESSERT-->
+<script type="text/javascript">
+	function contact_json(){
+   
+    var hr = new XMLHttpRequest();
+   
+    var url = "http://localhost/panasjson/contact.json";
+    hr.open("GET", url, true);
+    // Set content type header information for sending url encoded variables in the request
+    hr.setRequestHeader("Content-type", "application/json", true);
+    // Access the onreadystatechange event for the XMLHttpRequest object
+    hr.onreadystatechange = function() {
+	    if(hr.readyState == 4 && hr.status == 200) {
+		    var data = JSON.parse(hr.responseText);
+			var res = document.getElementById("res");
+	   		//results.innerHTML = data.news2.head +" <br/>Full report: " +data.news2.detail;
+	    res.innerHTML = "";
+	    for(var obj in data){
+	    		res.innerHTML += "<strong>"+"<ul style='list-style-type:none'><li>"+data[obj].con+"</strong>" +"</li>"+"</ul>";
+	    }
+	    }
+    }
+    // Send the data to PHP now... and wait for response to update the status div
+    hr.send(null); // Actually execute the request
+    document.getElementById("res").innerHTML = "requesting...";
+}
+	</script>
+<!--
+<script type="text/javascript">
+$(document).ready(function() {
+	jQuery('#text').delay(2000).slideDown();
+	
+});	
+</script>
+-->
+
+
+<link rel="stylesheet" href="css/custom.css" />
+<style type="text/css">
+img.fullscreen{width:100%; height: 100%;}
+#results a{text-decoration: none; padding: 0px;}
+#results{ padding: 0;  margin-top: 70px;}
+
+
+</style>
+<!--
+<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    jQuery('#newsbox').show("slide", { direction: "left" }, 1000);
+    
+}); 
+</script>
+<style type="text/css">
+#newsbox {
+    
+    display:none;
+   width: 300px;
+    height: 40px;
+    z-index: 1;
+    float: left;
+    position: fixed;
+    bottom: 45px;
+    padding-top: 10px;
+    padding-right: 0px;
+    padding-bottom: 10px;
+    padding-left: 2px;
+}
+
+.news-text {
+    float: left;
+    width: 600px;
+    
+}
+.news-text p {
+    text-align: left;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 13px;
+}
+
+
+
+
+</style>
+-->
+</head>
+<body>
+<div data-role="page" id="home">
+<header data-role="header">
+<h1 class='hehe'>Panas</h1>
+<center><span style="font-size:12px; color:#ff4a00; ">Aunthentic Nepalese Restaurant</span></center>
+
+</header>
+
+<div id="texttop">
+
+    <center>"Panas is a Nepalese Restaurant serving
+            authentic Nepalese cuisine." </center> 
+   
+</div>
+<!--
+<div id="text">
+	<div id="sentence">
+Authentic Nepalese cuisine. </div>
+</div>-->
+<div id="resu" >
+
+<script type="text/javascript">home_json();</script>
+</div>
+
+
+<div data-role="controlgroup" data-position="fixed">
+    <a href="#about" data-role="button" data-icon="star" data-iconpos="right" data-transition="slide" >ABOUT</a>
+    <a href="#menu" data-role="button" data-icon="grid" data-iconpos="right" data-transition="slide">MENU</a>
+    <a href="#contact" data-role="button" data-icon="info" data-iconpos="right" data-transition="slide">CONTACT</a>
+</div>
+
+</div><!--end of data-role=page-->
+
+<!--first page about-->
+<div data-role="page" id="about">
+<header data-role="header">
+<h1>About</h1>
+<a href="#home" data-icon="home" data-iconpos="notext" data-rel="back">Home</a>
+</header>
+
+	
+		<div id="ret" >
+
+<script type="text/javascript">about_json();</script>
+</div>
+	
+
+</div><!--end of first page about-->
+
+<!--second page menu-->
+<div data-role="page" id="menu">
+<header data-role="header">
+<h1>Menu</h1>
+<a href="#home" data-icon="home" data-iconpos="notext" data-rel="back">Home</a>
+</header>
+
+	<!--<ul data-role="listview" data-filter="true"> ssearch bar-->
+	
+			
+		<div id="results" >
+
+<script type="text/javascript">ajax_json();</script>
+</div>
+	
+
+</div><!--end of second page menu-->
+
+
+<!--dessert sub page -->
+<div data-role="page" id="dessert">
+<header data-role="header">
+<h1>Desserts</h1>
+<a href="#home" data-icon="home" data-iconpos="notext" data-direction="fade">Home</a>
+<a href="#menu" data-icon="back" data-iconpos="notext" data-rel="back">Back</a>
+</header>
+
+<div id="result" >
+
+<script type="text/javascript">dessert_json();</script>
+</div>
+
+</div><!--end of dessert sub page -->
+	
+
+<!--contact page -->
+<div data-role="page" id="contact">
+<header data-role="header">
+<h1>Contact</h1>
+<a href="#home" data-icon="home" data-iconpos="notext" data-rel="back">Home</a>
+
+</header>
+
+<div id="res" >
+
+<script type="text/javascript">contact_json();</script>
+</div>
+
+
+</div><!--end of contactp age -->
+
+		
+
+</div>
+
+
+</body>
+
+</html>
