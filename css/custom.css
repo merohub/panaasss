@@ -1,3 +1,6 @@
+body{
+   background-color: black !important
+}
 
 #head1{ text-shadow:none; padding: 20px; color: #ff4a00;  	margin-left: -40px; width: 100%;  background: #e8eaf1;}
 
